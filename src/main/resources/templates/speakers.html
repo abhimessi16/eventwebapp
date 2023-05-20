@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>All Sessions</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <link rel="stylesheet" href="css/main.css" />
+        <noscript><link rel="stylesheet" href="css/noscript.css"/></noscript>
+    </head>
+    <body class="no-sidebar is-preload">
+
+		<div id="page-wrapper">
+            <div id="header">
+                <div class="inner">
+                    <header>
+                        <h1>
+                            <a href="#" id="logo"
+                                >All about the Speakers</a>
+                        </h1>
+                    </header>
+                </div>
+                <nav id="nav">
+                    <ul>
+                        <li><a th:href="@{'/'}">Home</a></li>
+                        <li><a th:href="@{'/sessions'}">Sessions</a></li>
+                        <li><a th:href="@{'/speakers'}">Speakers</a></li>
+                        <li>
+                            <a th:href="@{'/event_modify'}">Event Modify</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="wrapper style1">
+            <div class="container">
+                <div class="row">
+                    <article class="col-4 col-12-mobile special" th:each="speaker : ${speakers}">
+                        <header>
+                            <h3><a th:href="@{'/speakers/' + ${speaker.getSpeaker_id()}}"
+								th:text="@{${speaker.getFirst_name() + ' ' + speaker.getLast_name}}"></a></h3>
+                        </header>
+                        <p th:text="${speaker.getTitle()}"></p>
+                        <p th:utext="${speaker.getSpeaker_bio()}"></p>
+                    </article>
+                </div>
+            </div>
+        </div>
+		<script src="js/jquery.min.js"></script>
+        <script src="js/jquery.dropotron.min.js"></script>
+        <script src="js/jquery.scrolly.min.js"></script>
+        <script src="js/jquery.scrollex.min.js"></script>
+        <script src="js/browser.min.js"></script>
+        <script src="js/breakpoints.min.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

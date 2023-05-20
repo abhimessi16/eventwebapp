@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Event Modify</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <link rel="stylesheet" href="/css/main.css" />
+        <noscript
+            ><link rel="stylesheet" href="/css/noscript.css"
+        /></noscript>
+    </head>
+    <body class="no-sidebar is-preload">
+        <div id="page-wrapper">
+            <div id="header">
+                <div class="inner">
+                    <header>
+                        <h1>
+                            <a href="#" id="logo">Event Modify</a>
+                        </h1>
+                    </header>
+                </div>
+                <nav id="nav">
+                    <ul>
+                        <li><a th:href="@{'/'}">Home</a></li>
+                        <li><a th:href="@{'/sessions'}">Sessions</a></li>
+                        <li><a th:href="@{'/speakers'}">Speakers</a></li>
+                        <li>
+                            <a th:href="@{'/event_modify'}">Event Modify</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrapper style1">
+                <div class="container">
+                    <div class="row aln-center">
+                        <article class="col-2 col-12-mobile special">
+                            <button
+                                class="button width-150px"
+                                id="speakerSelect"
+                                onclick="displayTitle('speakerModifyTitle')"
+                            >
+                                Speaker
+                            </button>
+                        </article>
+                        <article class="col-2 col-12-mobile special">
+                            <button
+                                class="button width-150px"
+                                id="sessionSelect"
+                                onclick="displayTitle('sessionModifyTitle')"
+                            >
+                                Session
+                            </button>
+                        </article>
+                    </div>
+                    <br />
+                    <div class="row aln-center">
+                        <article class="col-2 col-12-mobile special">
+                            <button
+                                class="button width-150px"
+                                id="addBtn"
+                                onclick="displayFormUtility('add')"
+                            >
+                                Add
+                            </button>
+                        </article>
+                        <article class="col-2 col-12-mobile special">
+                            <button
+                                class="button width-150px"
+                                id="deleteBtn"
+                                onclick="displayFormUtility('delete')"
+                            >
+                                Remove
+                            </button>
+                        </article>
+                        <article class="col-2 col-12-mobile special">
+                            <button
+                                class="button width-150px"
+                                id="updateBtn"
+                                onclick="displayFormUtility('update')"
+                            >
+                                Update
+                            </button>
+                        </article>
+                    </div>
+					<br>
+					<div class="row aln-center">
+						<article class="special">
+							<header>
+								<h2>
+									<div
+										id="speakerModifyTitle"
+										class="modifyTitle"
+										style="display: none"
+									>
+										Speaker
+									</div>
+									<div
+										id="sessionModifyTitle"
+										class="modifyTitle"
+										style="display: none"
+									>
+										Session
+									</div>
+								</h2>
+							</header>
+						</article>
+					</div>
+                </div>
+            </div>
+            <article class="special">
+                <section></section>
+            </article>
+            <div id="addSpeaker" class="modifyForm" style="display: none">
+                <form th:action="@{'/event_modify/add/speaker'}" method="post">
+                    <div>
+                        <label for="first_name">
+                            First Name: <input type="text" name="first_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="last_name">
+                            Last Name: <input type="text" name="last_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="title">
+                            Title: <input type="text" name="title" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="company">
+                            Company: <input type="text" name="company" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="speaker_bio">
+                            Speaker Bio:
+                            <textarea
+                                rows="8"
+                                cols="50"
+                                name="speaker_bio"
+                            ></textarea>
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div id="deleteSpeaker" class="modifyForm" style="display: none">
+                <form
+                    th:action="@{'/event_modify/delete/speaker'}"
+                    method="post"
+                >
+                    <div>
+                        <label for="first_name">
+                            First Name: <input type="text" name="first_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="last_name">
+                            Last Name: <input type="text" name="last_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="title">
+                            Title: <input type="text" name="title" />
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div id="updateSpeaker" class="modifyForm" style="display: none">
+                <form>
+                    <div>
+                        <label for="first_name">
+                            First Name: <input type="text" name="first_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="last_name">
+                            Last Name: <input type="text" name="last_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="title">
+                            Title: <input type="text" name="title" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="company">
+                            Company: <input type="text" name="company" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="speaker_bio">
+                            Speaker Bio:
+                            <textarea
+                                rows="8"
+                                cols="50"
+                                name="speaker_bio"
+                            ></textarea>
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div id="addSession" class="modifyForm" style="display: none">
+                <form th:action="@{'event_modify/add/session'}" method="post">
+                    <div>
+                        <label for="session_name">
+                            Name: <input type="text" name="session_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="session_length">
+                            Length: <input type="text" name="session_length" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="session_description">
+                            Description:
+                            <textarea
+                                rows="8"
+                                cols="50"
+                                name="session_description"
+                            ></textarea>
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div id="deleteSession" class="modifyForm" style="display: none">
+                <form
+                    th:action="@{'/event_modify/delete/session'}"
+                    method="post"
+                >
+                    <div>
+                        <label for="session_name">
+                            Name: <input type="text" name="session_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div id="updateSession" class="modifyForm" style="display: none">
+                <form>
+                    <div>
+                        <label for="session_name">
+                            Name: <input type="text" name="session_name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="session_length">
+                            Length: <input type="text" name="session_length" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="session_description">
+                            Description:
+                            <textarea
+                                rows="8"
+                                cols="50"
+                                name="session_description"
+                            ></textarea>
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="/js/addRemoveUpdate.js"></script>
+    </body>
+</html>

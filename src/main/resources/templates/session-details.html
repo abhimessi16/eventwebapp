@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Session</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <link rel="stylesheet" href="/css/main.css"/>
+        <noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+    </head>
+    <body class="no-sidebar is-preload">
+        <div id="page-wrapper">
+            <!-- Header -->
+            <div id="header">
+                <!-- Inner -->
+                <div class="inner">
+                    <header>
+                        <h1>
+                            <a th:href="@{'/'}" id="logo"
+                                >Event Management System</a
+                            >
+                        </h1>
+                        <hr />
+                        <p>Manage your events like a pro!</p>
+                    </header>
+                </div>
+
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li><a th:href="@{'/'}">Home</a></li>
+                        <li><a th:href="@{'/sessions'}">Sessions</a></li>
+                        <li><a th:href="@{'/speakers'}">Speakers</a></li>
+                        <li>
+                            <a th:href="@{'/event_modify'}">Event Modify</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrapper style1">
+                <div class="container">
+                    <div class="row">
+                        <article id="main" class="special">
+                            <header>
+                                <h2>
+                                    <a href="#"
+                                        th:text="${sess.getSession_name()}"></a>
+                                </h2>
+                                <p th:text="${sess.getSession_length()}">
+                                    Duration:
+                                </p>
+                            </header>
+                            <section>
+                                <header>
+                                    <h3>Session Description</h3>
+                                </header>
+                                <p
+                                    th:utext="${sess.getSession_description()}"
+                                ></p>
+                            </section>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/jquery.dropotron.min.js"></script>
+        <script src="/js/jquery.scrolly.min.js"></script>
+        <script src="/js/jquery.scrollex.min.js"></script>
+        <script src="/js/browser.min.js"></script>
+        <script src="/js/breakpoints.min.js"></script>
+        <script src="/js/util.js"></script>
+        <script src="/js/main.js"></script>
+    </body>
+</html>
